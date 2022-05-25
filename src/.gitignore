@@ -1,7 +1,7 @@
 *.pyc
 *~
-techBlog/__pycache__
-venv
+./techBlog/__pycache__
+./venv
 db.sqlite3
-/static
+./static
 .DS_Store
