@@ -1,1 +1,1 @@
-# techBlog
+# TechBlog
