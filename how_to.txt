@@ -1,0 +1,3 @@
+Если вы хотите работать
+напишите в консоль venv\Scripts\activate  или 
+source venv/bin/activate 
