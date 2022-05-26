@@ -1,3 +1,4 @@
 Если вы хотите работать
-напишите в консоль venv\Scripts\activate  или 
-source venv/bin/activate 
+чтобы сделать venv напишите python3 -m venv ./venv .
+А потом напишите в консоль venv\Scripts\activate  или 
+source venv/bin/activate .
