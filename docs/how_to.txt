@@ -1,4 +1,5 @@
 Если вы хотите работать
 чтобы сделать venv напишите python3 -m venv ./venv .
+    Если вы вдруг работаете на windows то пишите .\venv\Scripts\Activate.ps1
 А потом напишите в консоль venv\Scripts\activate  или 
 source venv/bin/activate .
