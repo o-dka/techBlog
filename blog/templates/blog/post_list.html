@@ -60,12 +60,15 @@
             <li>
               Дата публикации: {{ post.published_date|date:"d E Y" }}
             </li>
+	    
             <li>
               Теги: {% for tag in post.tag.all %}
                 <a href=""> #{{ tag.title }} </a>
               {% endfor %}
             </li>
+
           </ul>
+	  <h2><font color="#3B83BD"><i>{{ post.title }}<i/></font></h2>
           <p>{{ post.text }}</p>  
           {% if not forloop.last %}<hr>{% endif %}
         {% endfor %} 
