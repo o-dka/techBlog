@@ -1,4 +1,83 @@
 <html>
-<p>Hi there!</p>
-<p>It works!</p>
+<head>
+<title>TechBlog</title>
+{% load static %}
+<link  rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+<meta charset="utf-8">
+</head>
+<body>
+  <div class="page-header">
+    <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+    <h1><a href="/post/new/"> Создать пост </a></h1>
+</div>
+<div id="wrap">
+  <div id="masthead">
+    <h1><img src="static/media/ico.png" height="60" align="center"><span style="font-weight:bold; color:#4f4b4b; ">TechBlog</span></h1>
+    <div id="menucontainer">
+      <div id="menunav">
+        <ul>
+          <li><a href="post_list.html"><span style="font-weight:bold; color:#4f4b4b;">Home</span></a></li>
+          <li><a href="post_list.html"><span style="font-weight:bold; color:#4f4b4b;">About Us</span></a></li>
+          <li><a href="post_list.html"><span style="font-weight:bold; color:#4f4b4b;">Services</span></a></li>
+          <li><a href="post_list.html"><span style="font-weight:bold; color:#4f4b4b;">Our Work</span></a></li>
+          <li><a href="post_list.html"><span style="font-weight:bold; color:#4f4b4b;">Contact Us</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <div id="sidebar">
+      <h2><span style="font-weight:bold; color:#4f4b4b;">NOTHING</span></h2>
+      <form action="" method="post">
+        <fieldset>
+        <legend><span style="font-weight:bold; color:#4f4b4b;">Search</span></legend>
+        <div> <span>
+			<label for="txtsearch"> search:<img src="static/media/magnify.png" alt="search"></label>
+          </span> <span>
+          <input type="text" value="what you want?" name="txtsearch" title="Text input: search" id="txtsearch" size="25">
+          </span> </div>
+        </fieldset>
+      </form>
+      <img src="static/media/por.png" height="20"><img src="static/media/por.png" height="20"><img src="static/media/por.png" height="20"><img src="static/media/por.png" height="20"><img src="static/media/por.png" height="20">
+      <div id="navcontainer">
+        <ul>
+          <li><a href="post_list.html">MAIN</a></li>
+          <li><a href="post_list.html">TEAM</a> </li>
+        </ul>
+      </div>
+      <p></p>
+    </div>
+    <div id="content">
+      <span style="font-weight:bold; color:#4f4b4b;"><h2><span style="font-weight:bold; color:#4f4b4b;">Welcome to TechBlog <span style="font-weight:bold; color:#4f4b4b;">
+        <div class="container py-5">     
+          <h1>Последние обновления на сайте</h1>
+          {% for post in posts %}
+          <ul>
+            <li>
+              Автор: {{ post.author.get_full_name }}
+            </li>
+            <li>
+              Дата публикации: {{ post.published_date|date:"d E Y" }}
+            </li>
+            <li>
+              Теги: {% for tag in post.tag.all %}
+                <a href=""> #{{ tag.title }} </a>
+              {% endfor %}
+            </li>
+          </ul>
+          <p>{{ post.text }}</p>  
+          {% if not forloop.last %}<hr>{% endif %}
+        {% endfor %} 
+          <!-- под последним постом нет линии -->
+      </div>  
+    </div>
+  </div>
+</div>
+<div id="footer"> <a href="post_list.html">homepage</a> | <a href="https://vk.com/helena_afanasyeva">contact</a> | <a href="http://validator.w3.org/check?uri=referer">html</a> | <a href="http://jigsaw.w3.org/css-validator">css</a> | � 2022 Anyone | Design by <a href="http://www.TechBlog.com">www.TechBlog.com</a><br>
+  This work created by super team. </div>
+
+
+<div class="mallbery-caa" style="z-index: 2147483647 !important; text-transform: none !important; position: fixed;"></div></body>
+</body>
 </html>

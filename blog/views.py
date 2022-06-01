@@ -1,8 +1,18 @@
 from django.shortcuts import render
 from django.utils import timezone
-from .models import Post
+from .models import Post, Tag
 from .forms import PostForm
 from django.shortcuts import render, get_object_or_404
+
+
+def index(request):
+    templates = 'blog/post_list.html'
+    # title = "Последние обновления на сайте"
+    posts = Post.objects.order_by('-published_date')[:]
+    context = {
+        'posts': posts,
+    }
+    return render(request, templates, context)   
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -24,4 +34,3 @@ def post_new(request):
     else:
         form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})
-
